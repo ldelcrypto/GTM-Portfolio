@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Logan Del Rosario — Creator & GTM Advisor</title>
+<meta name="description" content="Logan Del Rosario — independent creator and founder of DOREN Advisory. Hair & fashion content, and the growth systems behind it." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#F8F6F1;        /* page + section-grid base (parchment white) */
+    --ink-2:#FFFFFF;      /* lifted cards */
+    --ink-3:#EFEAE0;      /* cream inset / hover */
+    --line:rgba(38,29,24,.13);
+    --line-2:rgba(38,29,24,.22);
+    --bone:#241C18;       /* primary text — blackish brown */
+    --body:#4E463F;       /* running body copy */
+    --strong:#1A130F;     /* bold emphasis */
+    --mute:#6E655E;       /* warm gray */
+    --mute-2:#9A9089;     /* light warm gray */
+    --accent:#96161E;     /* crimson */
+    --accent-hi:#B22633;  /* brighter crimson */
+    --chrome:linear-gradient(180deg,#42382F 0%,#20180F 40%,#5A4E45 60%,#241C16 100%); /* engraved steel */
+    --maxw:1180px;
+    --pad:clamp(20px,5vw,64px);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--bone);
+    font-family:"Hanken Grotesk",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+
+  a{color:inherit;text-decoration:none}
+
+  .mono{font-family:"Space Mono",ui-monospace,monospace}
+  .eyebrow{
+    font-family:"Space Mono",monospace;
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--mute);
+  }
+
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);position:relative;z-index:1}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(248,246,241,.82);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    height:60px;
+  }
+  .brand{
+    font-family:"Archivo",sans-serif;font-weight:900;letter-spacing:.02em;
+    font-size:18px;
+  }
+  .brand span{color:var(--accent)}
+  .nav-links{display:flex;gap:26px}
+  .nav-links a{
+    font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--bone)}
+  .nav-cta{
+    font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;
+    transition:border-color .2s,color .2s,background .2s;white-space:nowrap;
+  }
+  .nav-cta:hover{border-color:var(--accent);color:#fff;background:var(--accent)}
+  @media (max-width:820px){.nav-links{display:none}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:clamp(56px,12vh,120px) 0 clamp(40px,7vh,72px);position:relative}
+  .hero-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:clamp(30px,7vh,64px)}
+  .hero-top .r{text-align:right}
+  .name{
+    font-family:"Archivo",sans-serif;font-weight:900;
+    line-height:.86;letter-spacing:-.02em;
+    font-size:clamp(58px,14.5vw,188px);
+    text-transform:uppercase;
+    margin:0;
+    background:var(--chrome);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,.10));
+  }
+  .name .l2{display:block}
+  .thesis{
+    max-width:660px;margin:clamp(26px,5vh,44px) 0 0;
+    font-size:clamp(19px,2.4vw,25px);line-height:1.45;color:var(--bone);font-weight:500;
+  }
+  .thesis b{color:var(--strong);font-weight:700}
+  .thesis .hl{color:var(--accent-hi)}
+
+  .statline{
+    display:flex;flex-wrap:wrap;gap:0;margin-top:clamp(34px,6vh,54px);
+    border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);
+  }
+  .stat{
+    flex:1 1 150px;padding:20px 22px 18px;border-left:1px solid var(--line);
+  }
+  .stat:first-child{border-left:0}
+  .stat .n{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1;letter-spacing:-.01em}
+  .stat .k{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:9px}
+  @media (max-width:680px){.stat{flex-basis:50%;border-top:1px solid var(--line)}.stat:nth-child(-n+2){border-top:0}.stat:nth-child(odd){border-left:0}}
+
+  /* ---------- CHANNELS ---------- */
+  .channels{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(40px,8vh,70px)}
+  .chan{background:var(--ink);padding:26px 24px;display:flex;flex-direction:column;gap:6px;transition:background .25s}
+  .chan:hover{background:var(--ink-2)}
+  .chan .plat{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between;align-items:center}
+  .chan .h{font-family:"Archivo",sans-serif;font-weight:700;font-size:19px;margin-top:6px}
+  .chan .m{font-size:14px;color:var(--mute)}
+  .chan .m b{color:var(--bone);font-weight:600}
+  .chan .go{margin-top:auto;font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.08em;color:var(--accent-hi);display:inline-flex;gap:6px;align-items:center;padding-top:14px}
+  .chan:hover .go .arw{transform:translateX(3px)}
+  .arw{transition:transform .2s}
+  @media (max-width:720px){.channels{grid-template-columns:1fr}}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section.chapter{padding:clamp(64px,11vh,120px) 0;border-top:1px solid var(--line);position:relative}
+  .ch-head{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,4vw,42px);align-items:baseline;margin-bottom:clamp(34px,6vh,56px)}
+  .ch-num{font-family:"Space Mono",monospace;font-size:13px;color:var(--accent);letter-spacing:.1em;padding-top:10px}
+  .ch-title{font-family:"Archivo",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:.95;font-size:clamp(34px,6vw,68px);margin:0}
+  .ch-sub{grid-column:2;color:var(--mute);max-width:640px;margin-top:14px;font-size:16px}
+
+  /* origin */
+  .origin-grid{display:grid;grid-template-columns:1fr;gap:26px;max-width:820px}
+  .origin-grid p{margin:0;color:var(--body)}
+  .origin-grid p b{color:var(--strong)}
+  .pull{
+    font-family:"Archivo",sans-serif;font-weight:700;font-size:clamp(22px,3.2vw,34px);line-height:1.15;
+    color:var(--bone);border-left:2px solid var(--accent);padding-left:24px;margin:8px 0;letter-spacing:-.01em;
+  }
+  .origin-timeline{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .tl-chip{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.05em;color:var(--mute);border:1px solid var(--line-2);border-radius:999px;padding:7px 14px}
+  .tl-chip a{color:var(--accent-hi)}
+  .tl-chip a:hover{text-decoration:underline}
+
+  /* work */
+  .niche{margin-top:clamp(30px,5vh,48px)}
+  .niche-label{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;border-bottom:1px solid var(--line);padding-bottom:12px}
+  .niche-label .t{font-family:"Archivo",sans-serif;font-weight:800;text-transform:uppercase;font-size:22px;letter-spacing:.01em}
+  .niche-label .c{font-family:"Space Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.14em;text-transform:uppercase}
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{
+    background:var(--ink-2);border:1px solid var(--line);border-radius:4px;padding:22px 20px;
+    display:flex;flex-direction:column;min-height:150px;transition:border-color .25s,transform .25s,background .25s;
+  }
+  .card:hover{border-color:var(--line-2);background:var(--ink-3);transform:translateY(-3px)}
+  .card .idx{font-family:"Space Mono",monospace;font-size:11px;color:var(--mute-2);letter-spacing:.1em}
+  .card .ct{font-family:"Archivo",sans-serif;font-weight:700;font-size:19px;line-height:1.15;margin:10px 0 auto;letter-spacing:-.01em}
+  .card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+  .plat-tag{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .watch{font-family:"Space Mono",monospace;font-size:12px;color:var(--accent-hi);display:inline-flex;gap:6px;align-items:center}
+  .card:hover .watch .arw{transform:translateX(3px)}
+  @media (max-width:760px){.work-grid{grid-template-columns:1fr}}
+
+  /* process */
+  .proc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px);align-items:start}
+  .proc h4{font-family:"Archivo",sans-serif;font-weight:800;text-transform:uppercase;font-size:15px;letter-spacing:.12em;color:var(--mute);margin:0 0 14px}
+  .proc p{margin:0 0 16px;color:var(--body)}
+  .proc p b{color:var(--strong)}
+  .figure{margin-top:22px;border:1px solid var(--line-2);border-radius:6px;overflow:hidden;background:var(--ink-2)}
+  .figure .bar{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);align-items:center}
+  .figure .bar i{width:10px;height:10px;border-radius:50%;background:var(--mute-2);display:inline-block}
+  .figure .bar span{font-family:"Space Mono",monospace;font-size:11px;color:var(--mute);margin-left:8px;letter-spacing:.08em}
+  .figure img{display:block;width:100%;height:auto}
+  .figure figcaption{font-family:"Space Mono",monospace;font-size:11px;color:var(--mute);padding:11px 14px;border-top:1px solid var(--line);letter-spacing:.04em}
+  .series-badge{display:inline-flex;flex-direction:column;gap:2px;border:1px solid var(--line-2);border-radius:6px;padding:16px 20px;margin-top:6px}
+  .series-badge .b1{font-family:"Archivo",sans-serif;font-weight:900;font-size:30px;line-height:1}
+  .series-badge .b2{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+  @media (max-width:800px){.proc{grid-template-columns:1fr;gap:36px}}
+
+  /* metrics */
+  .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .metric{background:var(--ink);padding:26px 24px}
+  .metric .mn{display:flex;align-items:baseline;gap:12px}
+  .metric .mi{font-family:"Space Mono",monospace;font-size:12px;color:var(--accent)}
+  .metric h4{font-family:"Archivo",sans-serif;font-weight:800;font-size:20px;margin:0;letter-spacing:-.01em}
+  .metric .formula{font-family:"Space Mono",monospace;font-size:13.5px;color:var(--bone);margin-top:16px;padding:12px 14px;background:var(--ink-3);border:1px solid var(--line);border-radius:4px;line-height:1.5}
+  .metric .formula .op{color:var(--accent-hi)}
+  .metric .why{color:var(--mute);font-size:14px;margin-top:14px}
+  @media (max-width:640px){.metrics{grid-template-columns:1fr}}
+  .platforms{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .platforms .pf{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.06em;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:8px 15px}
+  .metrics-note{color:var(--mute);max-width:660px;margin:0 0 26px;font-size:16px}
+  .metrics-note b{color:var(--bone);font-weight:600}
+
+  /* experience */
+  .cases{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .case{background:var(--ink);padding:clamp(24px,4vw,38px)}
+  .case-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:baseline}
+  .case .org{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .case h4{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(24px,3.4vw,34px);margin:8px 0 0;letter-spacing:-.01em}
+  .case .meta{font-family:"Space Mono",monospace;font-size:12px;color:var(--mute);text-align:right}
+  .case p{color:var(--body);margin:16px 0 0;max-width:780px}
+  .case p b{color:var(--strong)}
+  .case .lk{display:inline-flex;gap:7px;align-items:center;margin-top:16px;font-family:"Space Mono",monospace;font-size:12px;color:var(--accent-hi);letter-spacing:.04em}
+  .case .lk:hover{text-decoration:underline}
+
+  .skills{margin-top:clamp(34px,6vh,52px)}
+  .skills-h{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:18px}
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .skill{background:var(--ink);padding:18px 20px;display:flex;gap:16px;align-items:baseline}
+  .skill .sk{font-family:"Archivo",sans-serif;font-weight:700;font-size:16px;min-width:150px;flex-shrink:0}
+  .skill .sd{color:var(--mute);font-size:14.5px}
+  @media (max-width:700px){.skill-grid{grid-template-columns:1fr}.skill{flex-direction:column;gap:4px}}
+
+  /* contact */
+  .contact{padding:clamp(70px,12vh,130px) 0 clamp(50px,9vh,90px);border-top:1px solid var(--line);text-align:center}
+  .contact .eyebrow{margin-bottom:22px}
+  .contact h3{font-family:"Archivo",sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(38px,8vw,96px);line-height:.9;letter-spacing:-.02em;margin:0}
+  .contact .sub{color:var(--mute);margin:22px auto 34px;max-width:520px}
+  .btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .btn{
+    font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.06em;
+    padding:14px 26px;border-radius:999px;border:1px solid var(--line-2);transition:all .22s;
+    display:inline-flex;gap:8px;align-items:center;
+  }
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{background:var(--accent-hi);border-color:var(--accent-hi)}
+  .btn:hover{border-color:var(--bone);color:var(--bone)}
+  .soc{display:flex;gap:24px;justify-content:center;margin-top:44px}
+  .soc a{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);transition:color .2s}
+  .soc a:hover{color:var(--bone)}
+
+  footer.foot{border-top:1px solid var(--line);padding:26px 0}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute-2)}
+
+  /* reveal animation */
+  .reveal{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  html.js .reveal{opacity:0;transform:translateY(22px)}
+  html.js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}.name{animation:none}}
+
+  :focus-visible{outline:2px solid var(--accent-hi);outline-offset:3px;border-radius:2px}
+
+  /* light-theme lift + hero bloom */
+  .card{box-shadow:0 1px 2px rgba(38,29,24,.04),0 12px 28px -16px rgba(38,29,24,.16)}
+  .figure{box-shadow:0 1px 2px rgba(38,29,24,.05),0 16px 40px -22px rgba(38,29,24,.22)}
+  .hero{position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:2%;right:-6%;width:70%;height:88%;background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0) 72%);pointer-events:none;z-index:0}
+  @media (prefers-reduced-motion:no-preference){}
+
+  /* ---- expandable video previews (Asian Hair) ---- */
+  .vgrid{align-items:start}
+  .vcard{appearance:none;font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;
+    background:var(--ink-2);border:1px solid var(--line);border-radius:6px;overflow:hidden;padding:0;
+    display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(38,29,24,.04),0 12px 28px -16px rgba(38,29,24,.16);
+    transition:transform .25s,border-color .25s,box-shadow .25s}
+  .vcard:hover{transform:translateY(-3px);border-color:var(--line-2)}
+  .vcard[aria-expanded="true"]{border-color:var(--accent)}
+  .vthumb{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#ded8cd}
+  .vthumb img{width:100%;height:100%;object-fit:cover;object-position:center 24%;display:block}
+  .vthumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.26))}
+  .vplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;
+    background:rgba(20,15,12,.5);border:1px solid rgba(255,255,255,.45);z-index:1;transition:background .2s,transform .2s}
+  .vcard:hover .vplay{background:rgba(150,22,30,.85);transform:translate(-50%,-50%) scale(1.06)}
+  .vplay::before{content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);
+    border-style:solid;border-width:8px 0 8px 14px;border-color:transparent transparent transparent #fff}
+  .vmeta{padding:16px 18px 16px;display:flex;flex-direction:column;gap:0}
+  .vidx{font-family:"Space Mono",monospace;font-size:11px;color:var(--accent);letter-spacing:.1em}
+  .vt{font-family:"Archivo",sans-serif;font-weight:700;font-size:18px;line-height:1.15;margin:8px 0 12px;letter-spacing:-.01em}
+  .vfoot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;gap:10px}
+  .vexpand{font-family:"Space Mono",monospace;font-size:12px;color:var(--accent-hi);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .chev{display:inline-block;transition:transform .3s}
+  .vcard[aria-expanded="true"] .chev{transform:rotate(180deg)}
+
+  .stage{margin-top:16px}
+  .vpanel{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1),opacity .3s,margin .3s}
+  .vpanel.open{grid-template-rows:1fr;opacity:1;margin-bottom:16px}
+  .vpanel-clip{overflow:hidden;min-height:0}
+  .vpanel-in{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,36px);
+    background:var(--ink-2);border:1px solid var(--line-2);border-radius:8px;padding:clamp(18px,3vw,30px);
+    box-shadow:0 1px 2px rgba(38,29,24,.05),0 18px 44px -24px rgba(38,29,24,.22)}
+  .vplayer{position:relative;width:clamp(220px,26vw,296px);border-radius:6px;overflow:hidden;background:#141210;align-self:start}
+  .vplayer video{width:100%;height:auto;display:block}
+  .vctrl{position:absolute;left:10px;bottom:10px;width:36px;height:36px;border-radius:50%;
+    background:rgba(20,15,12,.6);border:1px solid rgba(255,255,255,.35);color:#fff;cursor:pointer;
+    font-size:12px;display:grid;place-items:center;backdrop-filter:blur(2px);transition:background .2s}
+  .vctrl:hover{background:rgba(150,22,30,.9)}
+  .vmutetag{position:absolute;right:10px;bottom:13px;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:rgba(255,255,255,.9);background:rgba(20,15,12,.5);padding:4px 8px;border-radius:999px}
+  .vdetail{display:flex;flex-direction:column;gap:16px;min-width:0}
+  .vd-head h4{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(20px,2.6vw,27px);margin:0 0 4px;letter-spacing:-.01em}
+  .vd-sub{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .vd-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:5px;overflow:hidden}
+  .vd-stats>div{background:var(--ink-2);padding:13px 14px;display:flex;flex-direction:column;gap:5px}
+  .vd-stats .n{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(18px,2vw,23px);line-height:1;letter-spacing:-.01em}
+  .vd-stats .k{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .vd-source{font-family:"Space Mono",monospace;font-size:12.5px;color:var(--body);line-height:1.5}
+  .vd-source span{color:var(--accent-hi)}
+  .vshot{margin:0}
+  .vshot img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:6px;
+    box-shadow:0 1px 2px rgba(38,29,24,.05),0 14px 34px -20px rgba(38,29,24,.2)}
+  .vshot figcaption{font-family:"Space Mono",monospace;font-size:11px;color:var(--mute);margin-top:9px;letter-spacing:.04em}
+  .btn-watch{align-self:flex-start;background:var(--accent);color:#fff;border-radius:999px;
+    font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.06em;padding:11px 20px;
+    display:inline-flex;gap:8px;align-items:center;transition:background .2s}
+  .btn-watch:hover{background:var(--accent-hi)}
+  .btn-watch:hover .arw{transform:translateX(3px)}
+  @media (max-width:760px){
+    .vpanel-in{grid-template-columns:1fr}
+    .vplayer{width:min(260px,72vw);margin-inline:auto}
+    .vd-stats{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){.vpanel{transition:opacity .3s}.chev,.vplay,.vcard{transition:none}}
+
+  /* ---- Animus reconstruction aesthetic ---- */
+  .wrap{position:relative;z-index:1}
+
+  .hero{position:relative;overflow:hidden}
+  .hero .wrap{z-index:2}
+  .animus{position:absolute;inset:0;z-index:1;pointer-events:none}
+  .animus-svg{position:absolute;inset:0;width:100%;height:100%}
+
+  .hero-main{display:grid;grid-template-columns:1.06fr .94fr;align-items:end;gap:clamp(16px,3vw,40px);
+    margin-top:clamp(26px,6vh,54px)}
+  .hero-copy{min-width:0}
+  .hero-copy .name{font-size:clamp(44px,8.2vw,104px)}
+  .hero-copy .thesis{margin-top:clamp(22px,4vh,38px)}
+  .hero-figure{position:relative;display:flex;justify-content:center;align-items:flex-end;
+    min-height:clamp(420px,52vw,640px);align-self:end}
+  .portrait{position:relative;z-index:2;height:clamp(420px,52vw,640px);width:auto;max-width:100%;
+    object-fit:contain;object-position:bottom center;
+    -webkit-mask-image:linear-gradient(180deg,#000 84%,transparent 100%);
+            mask-image:linear-gradient(180deg,#000 84%,transparent 100%);
+    filter:saturate(.97) contrast(1.02)}
+  @media (max-width:880px){
+    .hero-main{grid-template-columns:1fr;align-items:start}
+    .hero-figure{min-height:0;margin-top:22px;order:2}
+    .portrait{height:clamp(340px,82vw,470px)}
+    .hero::before{right:auto;left:50%;transform:translateX(-50%);width:120%}
+  }
+  @media (prefers-reduced-motion:reduce){}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand">logan<span>.</span>delrosario</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#origin">Origin</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#metrics">Metrics</a>
+      <a href="#experience">Experience</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="animus" aria-hidden="true"><svg class="animus-svg" viewBox="0 0 1000 720" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M690 232 L928 470 L690 708 L452 470 Z" fill="none" stroke="#6E655E" stroke-width="1" opacity=".28"/><path d="M690 320 L840 470 L690 620 L540 470 Z" fill="none" stroke="#6E655E" stroke-width="1" opacity=".16"/><rect x="687" y="229" width="6" height="6" fill="#96161E" opacity=".3"/><rect x="925" y="467" width="6" height="6" fill="#96161E" opacity=".3"/><rect x="687" y="705" width="6" height="6" fill="#96161E" opacity=".3"/><rect x="449" y="467" width="6" height="6" fill="#96161E" opacity=".3"/><path d="M420 224 L420 200 L444 200" fill="none" stroke="#96161E" stroke-width="1" opacity=".22"/><path d="M960 224 L960 200 L936 200" fill="none" stroke="#96161E" stroke-width="1" opacity=".22"/><path d="M420 716 L420 740 L444 740" fill="none" stroke="#96161E" stroke-width="1" opacity=".22"/><path d="M960 716 L960 740 L936 740" fill="none" stroke="#96161E" stroke-width="1" opacity=".22"/></svg></div>
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="eyebrow">Independent creator<br>Founder — DOREN Advisory</div>
+        <div class="eyebrow r">Signed · Sun Talent Agency<br>LA</div>
+      </div>
+      <div class="hero-main">
+        <div class="hero-copy">
+          <h1 class="name reveal"><span class="l1">Logan Del</span><span class="l2">Rosario</span></h1>
+          <p class="thesis reveal">I built my own audiences in hair &amp; fashion, then reverse-engineered <b>why</b> they grew — now I'm building them for brands across every industry. <span class="hl">A creator's instinct, run like a growth system.</span></p>
+        </div>
+        <div class="hero-figure reveal">
+          <img class="portrait" src="assets/img1.png" alt="Portrait of Logan Del Rosario in a black blazer">
+        </div>
+      </div>
+
+      <div class="statline reveal">
+        <div class="stat"><div class="n">48.4K</div><div class="k">Instagram</div></div>
+        <div class="stat"><div class="n">46.2K</div><div class="k">TikTok · 1.5M likes</div></div>
+        <div class="stat"><div class="n">5M+</div><div class="k">Series views</div></div>
+        <div class="stat"><div class="n">50+</div><div class="k">Published videos</div></div>
+      </div>
+
+      <!-- CHANNELS -->
+      <div class="channels reveal">
+        <a class="chan" href="https://www.instagram.com/logan.delrosario/" target="_blank" rel="noopener">
+          <div class="plat">Instagram <span class="arw">↗</span></div>
+          <div class="h">@logan.delrosario</div>
+          <div class="m"><b>48.4K</b> followers</div>
+          <span class="go">View profile <span class="arw">→</span></span>
+        </a>
+        <a class="chan" href="https://www.tiktok.com/@logan.delrosario" target="_blank" rel="noopener">
+          <div class="plat">TikTok <span class="arw">↗</span></div>
+          <div class="h">@logan.delrosario</div>
+          <div class="m"><b>46.2K</b> followers · <b>1.5M</b> likes</div>
+          <span class="go">View profile <span class="arw">→</span></span>
+        </a>
+        <a class="chan" href="https://www.youtube.com/@logan.delrosario" target="_blank" rel="noopener">
+          <div class="plat">YouTube <span class="arw">↗</span></div>
+          <div class="h">@logan.delrosario</div>
+          <div class="m"><b>2.73K</b> subscribers · 50 videos</div>
+          <span class="go">View channel <span class="arw">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 ORIGIN -->
+  <section class="chapter" id="origin">
+    <div class="wrap">
+      <div class="ch-head reveal">
+        <div class="ch-num">01</div>
+        <h2 class="ch-title">Origin</h2>
+        <p class="ch-sub">From one viral clip to a defined audience — and eventually, a practice.</p>
+      </div>
+      <div class="origin-grid reveal">
+        <div class="origin-timeline">
+          <span class="tl-chip">First viral: <a href="https://www.tiktok.com/@ayalabulldogtimes/video/7190990034290658606" target="_blank" rel="noopener">Senior Year Interview ↗</a></span>
+          <span class="tl-chip">Traction: <a href="https://www.tiktok.com/@logan.delrosario/video/7191885374384540974" target="_blank" rel="noopener">Green Fit Check ↗</a></span>
+          <span class="tl-chip">2023–now: DOREN Advisory</span>
+        </div>
+        <p>It started with a school interview that unexpectedly took off. Right after, I found my footing posting <b>fit-check videos</b> — and an audience formed almost overnight.</p>
+        <p class="pull">I built an audience of high-school students experimenting with fashion — primarily young Asian men. From the very beginning, I've been laser-focused on that ICP.</p>
+        <p>After 2–3 years of learning directly from my own audience, I opened <b>DOREN Advisory</b> to apply the same methods to companies and other creators.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 WORK -->
+  <section class="chapter" id="work">
+    <div class="wrap">
+      <div class="ch-head reveal">
+        <div class="ch-num">02</div>
+        <h2 class="ch-title">Selected Work</h2>
+        <p class="ch-sub">Two niches I've owned — top performers, with the numbers behind them.</p>
+      </div>
+
+      <div class="niche reveal">
+        <div class="niche-label"><span class="t">Asian Hair</span><span class="c">Niche 01 · tap to preview</span></div>
+        <div class="work-grid vgrid">
+          <button class="vcard" type="button" aria-expanded="false" aria-controls="p-childhood" data-target="p-childhood">
+            <span class="vthumb"><img src="assets/img1.jpg" alt="Still from Recreating My Childhood Hair"><span class="vplay"></span></span>
+            <span class="vmeta"><span class="vidx">01</span><span class="vt">Recreating My Childhood Hair</span>
+              <span class="vfoot"><span class="plat-tag">TikTok · 1.8M</span><span class="vexpand">Preview<span class="chev">▾</span></span></span></span>
+          </button>
+          <button class="vcard" type="button" aria-expanded="false" aria-controls="p-overgrown" data-target="p-overgrown">
+            <span class="vthumb"><img src="assets/img2.jpg" alt="Still from Overgrown Mod"><span class="vplay"></span></span>
+            <span class="vmeta"><span class="vidx">02</span><span class="vt">Overgrown Mod</span>
+              <span class="vfoot"><span class="plat-tag">TikTok · 838K</span><span class="vexpand">Preview<span class="chev">▾</span></span></span></span>
+          </button>
+          <button class="vcard" type="button" aria-expanded="false" aria-controls="p-mod" data-target="p-mod">
+            <span class="vthumb"><img src="assets/img3.jpg" alt="Still from Mod Haircut Tutorial"><span class="vplay"></span></span>
+            <span class="vmeta"><span class="vidx">03</span><span class="vt">Mod Haircut Tutorial</span>
+              <span class="vfoot"><span class="plat-tag">TikTok · 1M</span><span class="vexpand">Preview<span class="chev">▾</span></span></span></span>
+          </button>
+        </div>
+
+        <div class="stage">
+          <section class="vpanel" id="p-childhood" role="region" aria-label="Recreating My Childhood Hair preview">
+            <div class="vpanel-clip"><div class="vpanel-in">
+              <div class="vplayer">
+                <video muted loop playsinline preload="none" poster="assets/img1.jpg"><source src="assets/video1.mp4" type="video/mp4"></video>
+                <button class="vctrl" type="button" aria-label="Pause">❚❚</button><span class="vmutetag">Muted</span>
+              </div>
+              <div class="vdetail">
+                <div class="vd-head"><h4>Recreating My Childhood Hair</h4><span class="vd-sub">TikTok · Posted Jul 28, 2024</span></div>
+                <div class="vd-stats"><div><span class="n">1.8M</span><span class="k">Views</span></div><div><span class="n">280K</span><span class="k">Likes</span></div><div><span class="n">28.1%</span><span class="k">Watched full</span></div><div><span class="n">3.6K</span><span class="k">New followers</span></div></div>
+                <div class="vd-source"><span>74.1% For You</span> · avg watch 10.54s · top search “Warrior cut”</div>
+                <figure class="vshot"><img src="assets/img4.jpg" alt="TikTok analytics for Recreating My Childhood Hair" loading="lazy"><figcaption>TikTok Studio — full breakdown</figcaption></figure>
+                <a class="btn-watch" href="https://www.tiktok.com/@logan.delrosario/video/7396784635390250282" target="_blank" rel="noopener">Watch on TikTok <span class="arw">→</span></a>
+              </div>
+            </div></div>
+          </section>
+
+          <section class="vpanel" id="p-overgrown" role="region" aria-label="Overgrown Mod preview">
+            <div class="vpanel-clip"><div class="vpanel-in">
+              <div class="vplayer">
+                <video muted loop playsinline preload="none" poster="assets/img2.jpg"><source src="assets/video2.mp4" type="video/mp4"></video>
+                <button class="vctrl" type="button" aria-label="Pause">❚❚</button><span class="vmutetag">Muted</span>
+              </div>
+              <div class="vdetail">
+                <div class="vd-head"><h4>Overgrown Mod</h4><span class="vd-sub">TikTok · Posted Nov 10, 2024</span></div>
+                <div class="vd-stats"><div><span class="n">838K</span><span class="k">Views</span></div><div><span class="n">69K</span><span class="k">Likes</span></div><div><span class="n">15.9%</span><span class="k">Watched full</span></div><div><span class="n">1.8K</span><span class="k">New followers</span></div></div>
+                <div class="vd-source"><span>68.2% For You</span> · 20.3% Search · top search “overgrown mod cut”</div>
+                <figure class="vshot"><img src="assets/img5.jpg" alt="TikTok analytics for Overgrown Mod" loading="lazy"><figcaption>TikTok Studio — full breakdown</figcaption></figure>
+                <a class="btn-watch" href="https://www.tiktok.com/@logan.delrosario/video/7435746888864877867" target="_blank" rel="noopener">Watch on TikTok <span class="arw">→</span></a>
+              </div>
+            </div></div>
+          </section>
+
+          <section class="vpanel" id="p-mod" role="region" aria-label="Mod Haircut Tutorial preview">
+            <div class="vpanel-clip"><div class="vpanel-in">
+              <div class="vplayer">
+                <video muted loop playsinline preload="none" poster="assets/img3.jpg"><source src="assets/video3.mp4" type="video/mp4"></video>
+                <button class="vctrl" type="button" aria-label="Pause">❚❚</button><span class="vmutetag">Muted</span>
+              </div>
+              <div class="vdetail">
+                <div class="vd-head"><h4>Mod Haircut Tutorial</h4><span class="vd-sub">TikTok · Posted Feb 12, 2025</span></div>
+                <div class="vd-stats"><div><span class="n">1M</span><span class="k">Views</span></div><div><span class="n">38K</span><span class="k">Likes</span></div><div><span class="n">20K</span><span class="k">Saves</span></div><div><span class="n">723</span><span class="k">New followers</span></div></div>
+                <div class="vd-source"><span>90.3% from Search</span> · top query “how to ask for a mod cut”</div>
+                <figure class="vshot"><img src="assets/img6.jpg" alt="TikTok analytics for Mod Haircut Tutorial" loading="lazy"><figcaption>TikTok Studio — full breakdown</figcaption></figure>
+                <a class="btn-watch" href="https://www.tiktok.com/@logan.delrosario/video/7470666443370155307" target="_blank" rel="noopener">Watch on TikTok <span class="arw">→</span></a>
+              </div>
+            </div></div>
+          </section>
+        </div>
+      </div>
+
+      <div class="niche reveal">
+        <div class="niche-label"><span class="t">Fashion</span><span class="c">Niche 02 · tap to preview</span></div>
+        <div class="work-grid vgrid">
+          <button class="vcard" type="button" aria-expanded="false" aria-controls="p-green" data-target="p-green">
+            <span class="vthumb"><img src="assets/img7.jpg" alt="Still from Green Fit Check"><span class="vplay"></span></span>
+            <span class="vmeta"><span class="vidx">01</span><span class="vt">Green Fit Check</span>
+              <span class="vfoot"><span class="plat-tag">TikTok · 927K</span><span class="vexpand">Preview<span class="chev">▾</span></span></span></span>
+          </button>
+          <button class="vcard" type="button" aria-expanded="false" aria-controls="p-chrome" data-target="p-chrome">
+            <span class="vthumb"><img src="assets/img8.jpg" alt="Still from Chrome Hearts Dive"><span class="vplay"></span></span>
+            <span class="vmeta"><span class="vidx">02</span><span class="vt">Chrome Hearts Dive</span>
+              <span class="vfoot"><span class="plat-tag">TikTok · 380K</span><span class="vexpand">Preview<span class="chev">▾</span></span></span></span>
+          </button>
+          <button class="vcard" type="button" aria-expanded="false" aria-controls="p-aesthetics" data-target="p-aesthetics">
+            <span class="vthumb"><img src="assets/img9.jpg" alt="Still from Understanding Aesthetics"><span class="vplay"></span></span>
+            <span class="vmeta"><span class="vidx">03</span><span class="vt">Understanding Aesthetics</span>
+              <span class="vfoot"><span class="plat-tag">TikTok · 143K</span><span class="vexpand">Preview<span class="chev">▾</span></span></span></span>
+          </button>
+        </div>
+
+        <div class="stage">
+          <section class="vpanel" id="p-green" role="region" aria-label="Green Fit Check preview">
+            <div class="vpanel-clip"><div class="vpanel-in">
+              <div class="vplayer">
+                <video muted loop playsinline preload="none" poster="assets/img7.jpg"><source src="assets/video4.mp4" type="video/mp4"></video>
+                <button class="vctrl" type="button" aria-label="Pause">❚❚</button><span class="vmutetag">Muted</span>
+              </div>
+              <div class="vdetail">
+                <div class="vd-head"><h4>Green Fit Check</h4><span class="vd-sub">TikTok · Posted Jan 23, 2023</span></div>
+                <div class="vd-stats"><div><span class="n">927K</span><span class="k">Views</span></div><div><span class="n">141K</span><span class="k">Likes</span></div><div><span class="n">35.2%</span><span class="k">Watched full</span></div><div><span class="n">11K</span><span class="k">New followers</span></div></div>
+                <div class="vd-source"><span>83.8% For You</span> · avg watch 10.92s · fans searching “logan.delrosario” by name</div>
+                <figure class="vshot"><img src="assets/img10.jpg" alt="TikTok analytics for Green Fit Check" loading="lazy"><figcaption>TikTok Studio — full breakdown</figcaption></figure>
+                <a class="btn-watch" href="https://www.tiktok.com/@logan.delrosario/video/7191885374384540974" target="_blank" rel="noopener">Watch on TikTok <span class="arw">→</span></a>
+              </div>
+            </div></div>
+          </section>
+
+          <section class="vpanel" id="p-chrome" role="region" aria-label="Chrome Hearts Dive preview">
+            <div class="vpanel-clip"><div class="vpanel-in">
+              <div class="vplayer">
+                <video muted loop playsinline preload="none" poster="assets/img8.jpg"><source src="assets/video5.mp4" type="video/mp4"></video>
+                <button class="vctrl" type="button" aria-label="Pause">❚❚</button><span class="vmutetag">Muted</span>
+              </div>
+              <div class="vdetail">
+                <div class="vd-head"><h4>Chrome Hearts Dive</h4><span class="vd-sub">TikTok · Ep. 7 · Posted Apr 16, 2025</span></div>
+                <div class="vd-stats"><div><span class="n">380K</span><span class="k">Views</span></div><div><span class="n">39K</span><span class="k">Likes</span></div><div><span class="n">8K</span><span class="k">Saves</span></div><div><span class="n">1.3K</span><span class="k">New followers</span></div></div>
+                <div class="vd-source"><span>62.1% from Search</span> · top query “chrome hearts meaning”</div>
+                <figure class="vshot"><img src="assets/img11.jpg" alt="TikTok analytics for Chrome Hearts Dive" loading="lazy"><figcaption>TikTok Studio — full breakdown</figcaption></figure>
+                <a class="btn-watch" href="https://www.tiktok.com/@logan.delrosario/video/7493988911925005611" target="_blank" rel="noopener">Watch on TikTok <span class="arw">→</span></a>
+              </div>
+            </div></div>
+          </section>
+
+          <section class="vpanel" id="p-aesthetics" role="region" aria-label="Understanding Aesthetics preview">
+            <div class="vpanel-clip"><div class="vpanel-in">
+              <div class="vplayer">
+                <video muted loop playsinline preload="none" poster="assets/img9.jpg"><source src="assets/video6.mp4" type="video/mp4"></video>
+                <button class="vctrl" type="button" aria-label="Pause">❚❚</button><span class="vmutetag">Muted</span>
+              </div>
+              <div class="vdetail">
+                <div class="vd-head"><h4>Understanding Aesthetics</h4><span class="vd-sub">TikTok · Ep. 3 · Posted Apr 7, 2025</span></div>
+                <div class="vd-stats"><div><span class="n">143K</span><span class="k">Views</span></div><div><span class="n">25K</span><span class="k">Likes</span></div><div><span class="n">18.51s</span><span class="k">Avg watch</span></div><div><span class="n">2.6K</span><span class="k">New followers</span></div></div>
+                <div class="vd-source"><span>85.9% For You</span> · 25K likes on 143K views — ~17% engaged</div>
+                <figure class="vshot"><img src="assets/img12.jpg" alt="TikTok analytics for Understanding Aesthetics" loading="lazy"><figcaption>TikTok Studio — full breakdown</figcaption></figure>
+                <a class="btn-watch" href="https://www.tiktok.com/@logan.delrosario/video/7490628315473202478" target="_blank" rel="noopener">Watch on TikTok <span class="arw">→</span></a>
+              </div>
+            </div></div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 PROCESS -->
+  <section class="chapter" id="process">
+    <div class="wrap">
+      <div class="ch-head reveal">
+        <div class="ch-num">03</div>
+        <h2 class="ch-title">Process</h2>
+        <p class="ch-sub">How the videos actually get made — editing and scripting.</p>
+      </div>
+      <div class="proc reveal">
+        <div>
+          <h4>Editing</h4>
+          <p>I'm an <b>advanced CapCut Pro user</b>. Even when raw footage is messy or hard to clip, I produce top-tier quality on clean, organized timelines — and I've experimented with AI clipping tools to move faster.</p>
+          <p>Given the views, retention, and follower metrics my edits earn, I'm confident in my ability to cut consumable video at pace.</p>
+          <figure class="figure">
+            <div class="bar"><i></i><i></i><i></i><span>capcut · 0515 timeline</span></div>
+            <img src="assets/img2.png" alt="A CapCut Pro editing timeline showing multiple layered video, text, and audio tracks for one of Logan's videos." loading="lazy" />
+            <figcaption>Real project timeline — layered captions, speed ramps, and synced audio.</figcaption>
+          </figure>
+        </div>
+        <div>
+          <h4>Scripting</h4>
+          <p>I identify what people care about and package it into <b>series</b>. My hit series <b>“How to Dress Good”</b> has earned over 5M views and 30K+ followers.</p>
+          <p>First I find popular topics and filter out what's just momentarily trending. Then I research deeply — picking up niche slang, humor, and news other creators miss — and write a punchy 45s–2min script optimized for delivery.</p>
+          <p>Every script lives cleanly in a Google Doc so I can annotate and study analytics: click-off rates, retention, and comments that reference specific moments in the video.</p>
+          <div class="series-badge">
+            <span class="b1">5M+ views</span>
+            <span class="b2">“How to Dress Good” series · 30K+ followers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 METRICS -->
+  <section class="chapter" id="metrics">
+    <div class="wrap">
+      <div class="ch-head reveal">
+        <div class="ch-num">04</div>
+        <h2 class="ch-title">Metrics</h2>
+        <p class="ch-sub">Why I stopped trusting views &amp; followers alone.</p>
+      </div>
+      <p class="metrics-note reveal">Views and followers don't tell you whether a community is actually <b>strong or growing</b> — a real problem once I started helping startups grow their own channels. So I built a guideline and tested new metrics on my own videos first. These four now drive how I plan and review content.</p>
+
+      <div class="metrics reveal">
+        <div class="metric">
+          <div class="mn"><span class="mi">a.</span><h4>View Rate</h4></div>
+          <div class="formula">Views <span class="op">/</span> Impressions</div>
+          <div class="why">How compelling the thumbnail/hook is before anyone commits.</div>
+        </div>
+        <div class="metric">
+          <div class="mn"><span class="mi">b.</span><h4>Engagement Rate</h4></div>
+          <div class="formula">(Likes <span class="op">+</span> Comments <span class="op">+</span> Saves <span class="op">+</span> Shares) <span class="op">/</span> Views</div>
+          <div class="why">Whether the content earns a reaction, not just a pass-through.</div>
+        </div>
+        <div class="metric">
+          <div class="mn"><span class="mi">c.</span><h4>Conversion Proxy</h4></div>
+          <div class="formula">(Follows <span class="op">or</span> Profile Visits) <span class="op">/</span> Views</div>
+          <div class="why">The bridge from a single view to a lasting audience.</div>
+        </div>
+        <div class="metric">
+          <div class="mn"><span class="mi">d.</span><h4>Drop-off Rate</h4></div>
+          <div class="formula">% loss between each funnel stage</div>
+          <div class="why">Where attention leaks — the highest-leverage thing to fix.</div>
+        </div>
+      </div>
+
+      <div class="platforms reveal">
+        <span class="pf">Instagram Analytics</span>
+        <span class="pf">Meta Business Suite</span>
+        <span class="pf">TikTok Analytics</span>
+        <span class="pf">YouTube Studio</span>
+        <span class="pf">LinkedIn Analytics</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 EXPERIENCE -->
+  <section class="chapter" id="experience">
+    <div class="wrap">
+      <div class="ch-head reveal">
+        <div class="ch-num">05</div>
+        <h2 class="ch-title">Experience</h2>
+        <p class="ch-sub">Independent creator with Sun Talent, and founder of DOREN Advisory — where I optimize GTM for companies.</p>
+      </div>
+
+      <div class="cases reveal">
+        <div class="case">
+          <div class="case-top">
+            <div>
+              <div class="org">Sun Talent Agency · Partnership</div>
+              <h4>CYBHI — State of California</h4>
+            </div>
+            <div class="meta">Paid partnership<br>Youth mental health</div>
+          </div>
+          <p>Selected for the <b>Children &amp; Youth Behavioral Health Initiative</b> to connect with Asian youth around mental health. I planned, scripted, and edited three videos on my own experience with mental-health struggles and stress management — each built with a hook, personal anecdote, and CTA.</p>
+          <a class="lk" href="https://cybhi.chhs.ca.gov/" target="_blank" rel="noopener">CYBHI information <span class="arw">→</span></a>
+        </div>
+
+        <div class="case">
+          <div class="case-top">
+            <div>
+              <div class="org">DOREN Advisory · Contract</div>
+              <h4>AGMNT — Tech &amp; Fashion Startup</h4>
+            </div>
+            <div class="meta">Jun–Aug 2025<br>San Jose, CA</div>
+          </div>
+          <p>Over a 2-month paid contract I worked directly with the <b>CEO and CMO</b> on marketing strategy and event economics — marketing planning, in-person event-sales optimization, and online community growth. I trained their marketing team in editing, camera performance, and consumer intuition.</p>
+          <p>I solidified their <b>ICP</b>, organized their strategy in Google Docs/Drive, and gave insight from both the consumer and producer side. My core GTM play: target Bay-Area micro-influencers (under 10K), invite them to bring friends in exchange for free drinks, and make them feel important — so each event outperformed the last.</p>
+          <a class="lk" href="https://agmnt.space/" target="_blank" rel="noopener">AGMNT website <span class="arw">→</span></a>
+        </div>
+      </div>
+
+      <div class="skills reveal">
+        <div class="skills-h">Toolkit</div>
+        <div class="skill-grid">
+          <div class="skill"><span class="sk">CapCut Pro</span><span class="sd">Advanced — editing &amp; video planning.</span></div>
+          <div class="skill"><span class="sk">Google Docs</span><span class="sd">Everything organized — scripts &amp; strategy.</span></div>
+          <div class="skill"><span class="sk">Claude AI</span><span class="sd">Very comfortable — vibe coding &amp; prompting.</span></div>
+          <div class="skill"><span class="sk">RStudio</span><span class="sd">Comfortable — data modeling &amp; stats.</span></div>
+          <div class="skill"><span class="sk">Excel / Sheets</span><span class="sd">Comfortable — tracking &amp; analysis.</span></div>
+          <div class="skill"><span class="sk">Clay</span><span class="sd">Building proficiency — GTM &amp; sales ops.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="eyebrow">Bookings &amp; partnerships</div>
+      <h3>Let's build<br>something.</h3>
+      <p class="sub">Creator collaborations, brand partnerships, or GTM &amp; social-growth advisory through DOREN.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:logan.delrosario.co@gmail.com">Email for bookings <span class="arw">→</span></a>
+        <a class="btn" href="https://www.tiktok.com/@logan.delrosario" target="_blank" rel="noopener">See the work</a>
+      </div>
+      <div class="soc">
+        <a href="https://www.instagram.com/logan.delrosario/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@logan.delrosario" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@logan.delrosario" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>© <span id="yr"></span> Logan Del Rosario</span>
+    <span>Creator · GTM Advisor · DOREN Advisory</span>
+  </div>
+</footer>
+
+<script>
+  try { document.getElementById('yr').textContent = new Date().getFullYear(); } catch(e){}
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    function showAll(){ for(var i=0;i<els.length;i++) els[i].classList.add('in'); }
+    if(!('IntersectionObserver' in window)){ showAll(); return; }
+    try {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold:.12, rootMargin:"0px 0px -8% 0px" });
+      els.forEach(function(el){ io.observe(el); });
+      // failsafe: reveal anything already on-screen shortly after load
+      setTimeout(function(){
+        document.querySelectorAll('.reveal:not(.in)').forEach(function(el){
+          if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+        });
+      }, 1200);
+    } catch(err){ showAll(); }
+  })();
+</script>
+
+<script>
+(function(){
+  var cards=document.querySelectorAll('.vcard');
+  var panels=document.querySelectorAll('.vpanel');
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function closeExcept(keep){
+    panels.forEach(function(p){
+      if(p===keep) return;
+      p.classList.remove('open');
+      var v=p.querySelector('video'); if(v) v.pause();
+    });
+    cards.forEach(function(c){ if(!keep||c.getAttribute('aria-controls')!==keep.id) c.setAttribute('aria-expanded','false'); });
+  }
+  cards.forEach(function(card){
+    card.addEventListener('click',function(){
+      var panel=document.getElementById(card.dataset.target);
+      var open=card.getAttribute('aria-expanded')==='true';
+      if(open){
+        card.setAttribute('aria-expanded','false');
+        panel.classList.remove('open');
+        var vv=panel.querySelector('video'); if(vv) vv.pause();
+        return;
+      }
+      closeExcept(panel);
+      card.setAttribute('aria-expanded','true');
+      panel.classList.add('open');
+      var v=panel.querySelector('video');
+      if(v){ v.muted=true; var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){}); }
+      setTimeout(function(){ panel.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'}); },140);
+    });
+  });
+  panels.forEach(function(p){
+    var v=p.querySelector('video'), btn=p.querySelector('.vctrl');
+    if(!v||!btn) return;
+    function sync(){ btn.textContent=v.paused?'►':'❚❚'; btn.setAttribute('aria-label',v.paused?'Play':'Pause'); }
+    btn.addEventListener('click',function(e){ e.stopPropagation(); if(v.paused){v.muted=true;v.play();}else{v.pause();} sync(); });
+    v.addEventListener('play',sync); v.addEventListener('pause',sync); sync();
+  });
+})();
+</script>
+</body>
+</html>
